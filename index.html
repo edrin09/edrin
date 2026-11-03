@@ -443,11 +443,6 @@
   .way.copyable{cursor:pointer}
   .way:focus-visible{outline:2px solid var(--ink);outline-offset:3px}
 
-  .contact-meta{display:flex;gap:12px 34px;flex-wrap:wrap;margin-top:26px;
-    font-family:var(--mono);font-size:10px;letter-spacing:.06em;color:var(--dim)}
-  .contact-meta span{display:inline-flex;align-items:baseline;gap:8px}
-  .contact-meta b{font-weight:400;color:var(--ink-2);letter-spacing:.1em}
-
   /* ---------- 页脚 ---------- */
   footer{border-top:1px solid var(--line);padding:44px 0 34px}
   .foot-top{display:flex;align-items:flex-start;justify-content:space-between;gap:30px;flex-wrap:wrap;margin-bottom:34px}
@@ -1151,10 +1146,6 @@
         </div>
       </div>
 
-      <div class="contact-meta">
-        <span><b>地点</b>西安市未央区</span>
-        <span><b>说明</b>本站不含在线表单，也不收集任何访客信息</span>
-      </div>
     </div>
   </section>
 </main>
@@ -1650,9 +1641,7 @@
       phone: "15389232340",
       phoneNote: "工作日 9:00 – 19:00",
       email: "y_p09@163.com",
-      wechat: "PengYunZhiMa",
-      address: "西安市未央区",
-      addressNote: "来访请先电话联系"
+      wechat: "PengYunZhiMa"
     },
     works: []
   };
@@ -1774,8 +1763,6 @@
     setText("cPhoneNote", SITE.phoneNote);
     setText("cEmail", SITE.email);
     setText("cWechat", SITE.wechat);
-    setText("cAddress", SITE.address);
-    setText("cAddressNote", SITE.addressNote);
     setText("cName", SITE.name);
     var tel = document.getElementById("cPhoneLink");
     if (tel) tel.href = "tel:" + (SITE.phone || "").replace(/[^\d+]/g, "");
