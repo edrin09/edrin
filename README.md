@@ -78,5 +78,14 @@ python -m http.server 8080
 ```
 index.html     页面（样式与脚本全部内联，单文件）
 content.json   内容数据
+favicon.png    浏览器标签图标
 uploads/       图片与视频素材
+  logo.png       品牌标识主图 480×480（透明底，供大尺寸/印刷）
+  logo-128.png   页头与页脚用的 128×128（透明底）
 ```
+
+## 品牌标识
+
+标识已去白底、裁去留白，透明 PNG，可直接叠在任意底色上。页头与页脚使用 `uploads/logo-128.png`（显示尺寸 34px，覆盖 2× 屏），主图 `uploads/logo.png` 备用于更大尺寸的场景。
+
+换 logo 时按同样规格出一张透明 PNG 覆盖这两个文件即可，不必改代码。若要调页头尺寸，改 `index.html` 里的 `.brand-mark{width:34px;height:34px}` 与 `<img>` 的 `width/height` 两处（页头与页脚）。
