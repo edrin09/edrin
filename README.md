@@ -2,25 +2,31 @@
 
 纯静态站点，没有后台、没有数据库、没有构建步骤。改内容只改 `content.json`。
 
-## 部署到 GitHub Pages
+线上地址：**https://edrin09.github.io/edrin/**
+仓库：https://github.com/edrin09/edrin
 
-1. 新建仓库，例如 `pengyun`
-2. 把整个目录推上去（`index.html`、`content.json`、`uploads/` 必须在仓库**根目录**）
-3. 仓库 Settings → Pages → Source 选 `Deploy from a branch`，分支 `main`、目录 `/ (root)`，保存
-4. 等 1 分钟，访问 `https://edrin09.github.io/pengyun/`
+## 部署
 
-命令行推送：
+已部署完毕，本仓库 `main` 分支即发布源。改完内容推送即可：
 
 ```bash
-git init
 git add .
-git commit -m "init"
-git branch -M main
-git remote add origin https://github.com/edrin09/pengyun.git
-git push -u origin main
+git commit -m "更新内容"
+git push
 ```
 
-更新内容后同样 `git add . && git commit && git push`，Pages 会自动重建（约 30–60 秒）。
+Pages 会在 30–60 秒后自动重建，无需额外操作。
+
+换新仓库或迁移时的完整步骤：
+
+1. 新建仓库，把整个目录推上去（`index.html`、`content.json`、`uploads/` 必须在仓库**根目录**）
+2. Settings → Pages → Source 选 `Deploy from a branch`，分支 `main`、目录 `/ (root)`
+3. 等 1 分钟，访问 `https://<用户名>.github.io/<仓库名>/`
+
+> 若 `git push` 报 `schannel: failed to receive handshake`，是本机 Git 未走代理所致。当前网络需带代理推送：
+> ```bash
+> git -c http.proxy="$http_proxy" -c https.proxy="$http_proxy" push
+> ```
 
 ## 改内容
 
