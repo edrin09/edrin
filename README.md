@@ -56,9 +56,14 @@ Pages 会在 30–60 秒后自动重建，无需额外操作。
   "video": "",                 // 视频：mp4 直链或 B 站链接
   "poster": "",                // 视频封面帧，不填用 cover
   "videoPortrait": false,      // 竖屏视频填 true，按 9:16 显示
-  "link": "https://..."        // 「访问项目」链接，留空不显示
+  "links": [                   // 项目地址，可写多个平台，留空不显示
+    { "platform": "GitHub", "label": "源码仓库", "url": "https://github.com/..." },
+    { "platform": "Gitee",  "label": "源码仓库", "url": "https://gitee.com/..." }
+  ]
 }
 ```
+
+> 旧写法 `"link": "https://..."` 仍然兼容，等价于只显示一个「访问项目」链接；同时存在时以 `links` 为准。
 
 **加图片**：把图片放进 `uploads/`，`cover` 写相对路径即可，例如 `"cover": "uploads/boki.png"`。
 

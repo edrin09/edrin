@@ -372,9 +372,13 @@
   .stack{display:flex;flex-wrap:wrap;gap:5px;margin-top:18px}
   .stack span{font-family:var(--mono);font-size:9px;padding:3px 7px;border-radius:3px;
     background:rgba(11,12,13,.05);color:var(--ink-2)}
+  .link-row{display:flex;flex-wrap:wrap;gap:10px 24px;align-items:center;margin-top:18px}
   .link-arrow{display:inline-flex;align-items:center;gap:6px;font-size:12px;border-bottom:1px solid var(--ink);
     padding-bottom:2px;transition:gap .2s}
   .link-arrow:hover{gap:9px}
+  .link-plat{font-family:var(--mono);font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--dim);
+    border:1px solid var(--line);border-radius:3px;padding:2px 5px;transition:color .2s,border-color .2s}
+  .link-arrow:hover .link-plat{color:var(--ink);border-color:var(--ink)}
 
   .work-media{margin:26px 12px 34px 166px;display:flex;flex-direction:column;gap:12px}
   .media-cover{display:block;border:1px solid var(--line);border-radius:8px;overflow:hidden;padding:0;background:#e6e5de;cursor:zoom-in}
@@ -1710,9 +1714,15 @@
     var stackHtml = (w.tags || []).length
       ? '<div class="stack">' + w.tags.map(function(t){ return "<span>" + esc(t) + "</span>"; }).join("") + "</div>"
       : "";
-    var linkHtml = w.link
-      ? '<div style="margin-top:18px"><a class="link-arrow" href="' + esc(w.link) +
-        '" target="_blank" rel="noopener">访问项目 <svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M9 7h8v8"/></svg></a></div>'
+    var arrowSvg = '<svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M9 7h8v8"/></svg>';
+    var links = (Array.isArray(w.links) ? w.links : []).filter(function(l){ return l && l.url; });
+    if (!links.length && w.link) links = [{ url: w.link, label: "访问项目" }];
+    var linkHtml = links.length
+      ? '<div class="link-row">' + links.map(function(l){
+          return '<a class="link-arrow" href="' + esc(l.url) + '" target="_blank" rel="noopener">' +
+            (l.platform ? '<span class="link-plat">' + esc(l.platform) + '</span>' : '') +
+            esc(l.label || "访问项目") + arrowSvg + '</a>';
+        }).join("") + '</div>'
       : "";
     var imgCount = (w.cover ? 1 : 0) + (w.gallery || []).length;
     var thumb = w.cover

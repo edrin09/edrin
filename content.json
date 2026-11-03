@@ -32,7 +32,18 @@
         "uploads/work-boki-plugins.jpg"
       ],
       "video": "",
-      "link": "https://edrin09.github.io/boki/"
+      "links": [
+        {
+          "platform": "GitHub",
+          "label": "在线演示",
+          "url": "https://edrin09.github.io/boki/"
+        },
+        {
+          "platform": "Gitee",
+          "label": "源码仓库",
+          "url": "https://gitee.com/edrin/boki"
+        }
+      ]
     },
     {
       "id": "w_mall",
@@ -83,7 +94,18 @@
         "uploads/work-drama-frames.jpg"
       ],
       "video": "uploads/work-drama-clip.mp4",
-      "link": "",
+      "links": [
+        {
+          "platform": "GitHub",
+          "label": "源码仓库",
+          "url": "https://github.com/edrin09/LocalMiniDrama"
+        },
+        {
+          "platform": "Gitee",
+          "label": "源码仓库",
+          "url": "https://gitee.com/edrin/LocalMiniDrama"
+        }
+      ],
       "videoPortrait": true,
       "poster": "uploads/work-drama-poster.jpg"
     },
@@ -109,7 +131,18 @@
       "cover": "uploads/work-crawler.jpg",
       "gallery": [],
       "video": "",
-      "link": ""
+      "links": [
+        {
+          "platform": "GitHub",
+          "label": "源码仓库",
+          "url": "https://github.com/edrin09/leadcrawler"
+        },
+        {
+          "platform": "Gitee",
+          "label": "源码仓库",
+          "url": "https://gitee.com/edrin/leadcrawler"
+        }
+      ]
     },
     {
       "id": "w_tougao",
@@ -180,7 +213,18 @@
       "cover": "uploads/work-checkin.jpg",
       "gallery": [],
       "video": "",
-      "link": ""
+      "links": [
+        {
+          "platform": "GitHub",
+          "label": "源码仓库",
+          "url": "https://github.com/edrin09/checkin"
+        },
+        {
+          "platform": "Gitee",
+          "label": "源码仓库",
+          "url": "https://gitee.com/edrin/checkin"
+        }
+      ]
     }
   ]
 }
