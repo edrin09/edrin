@@ -1,0 +1,188 @@
+{
+  "site": {
+    "name": "西安市未央区鹏云智码软件开发部",
+    "shortName": "鹏云智码",
+    "phone": "15389232340",
+    "phoneNote": "工作日 9:00 – 19:00",
+    "email": "y_p09@163.com",
+    "wechat": "PengYunZhiMa",
+    "address": "西安市未央区",
+    "addressNote": "详细地址请预约后提供"
+  },
+  "works": [
+    {
+      "id": "w_boki",
+      "title": "BOKI · 离线优先的开源财务软件",
+      "badge": "PRODUCT",
+      "year": "",
+      "summary": "Vue 3 + NestJS + SQLCipher 的桌面财务软件，库文件被拷走也打不开；AI 记账、14 个官方插件、零云端依赖。",
+      "tags": [
+        "离线优先",
+        "SQLCipher",
+        "AI 记账",
+        "插件化"
+      ],
+      "detail": "面向小微企业主、个体工商户与代理记账公司的记账系统。内核只保留记账必需的复式记账引擎（科目、凭证、期初、公司上下文），其余能力全部插件化，不装的插件在界面里不留一丝痕迹。数据库使用 SQLCipher 加密单文件存储，没有云端、没有第三方 SDK 回传、没有任何埋点与遥测；票据识别、语音记账、报表分析均由本地模型完成。AGPL-3.0 开源，Windows / macOS / Linux 三端可用，单命令启动。",
+      "role": [
+        "复式记账内核与科目体系设计",
+        "插件运行时与 14 个官方插件开发",
+        "SQLCipher 加密存储与备份恢复",
+        "桌面端打包与自动更新"
+      ],
+      "cover": "uploads/work-boki.jpg",
+      "gallery": [
+        "uploads/work-boki-plugins.jpg"
+      ],
+      "video": "",
+      "link": "https://edrin09.github.io/boki/"
+    },
+    {
+      "id": "w_mall",
+      "title": "商场 3D 智慧导视系统",
+      "badge": "3D",
+      "year": "",
+      "summary": "浏览器里的商场三维导视：楼层 / 全貌 / 立体分层三种视图，室内 A* 寻路，配套 CAD 图纸导入与 POI 标注后台。",
+      "tags": [
+        "Three.js",
+        "FastAPI",
+        "A* 寻路",
+        "CAD 解析"
+      ],
+      "detail": "PC 端用 Vue 3 + Three.js 程序化生成楼层模型，支持鼠标拾取、路线动画与业态筛选。三种视图分别是单层俯视、整栋外观加楼层堆叠、六层楼板拉开悬浮——扶梯以斜向光带、直梯以玻璃井道竖向贯通，地下车库按车位排布。管理后台 11 个功能菜单，打通「CAD 图纸导入 → 图层识别 → 对齐 → POI 标注 → 发布」的完整链路，带 RBAC 权限与操作审计。后端 Python 3.14 + FastAPI + SQLite（WAL），不依赖外部数据库与中间件。",
+      "role": [
+        "3D 场景生成与鼠标拾取交互",
+        "室内 A* 寻路与跨层路径计算",
+        "DXF / DWG 图纸解析与图层对齐",
+        "管理后台与 RBAC 权限、操作审计"
+      ],
+      "cover": "uploads/work-mall.jpg",
+      "gallery": [
+        "uploads/work-mall-cad.jpg"
+      ],
+      "video": "",
+      "link": ""
+    },
+    {
+      "id": "w_drama",
+      "title": "AI 漫剧生成系统",
+      "badge": "AIGC",
+      "year": "",
+      "summary": "从角色设定到分镜出图的漫剧生产流水线：角色与道具资产库、首尾帧分镜生成、剧集与集数管理。",
+      "tags": [
+        "NestJS",
+        "Prisma",
+        "AIGC",
+        "分镜生成"
+      ],
+      "detail": "后端 NestJS + Prisma + SQLite，前端 Vue 3 + Element Plus，按「角色 → 道具 → 分镜 → 剧集」的层级组织生产流程。角色与道具用图生图维持跨分镜的一致性，分镜按首尾帧生成，产物落库后可按剧集回看；支持多项目数据隔离与生成任务排队，避免并发打爆本地推理服务。",
+      "role": [
+        "剧集层级的数据模型设计",
+        "角色 / 道具一致性与首尾帧生成",
+        "生成任务队列与产物管理"
+      ],
+      "cover": "uploads/work-drama.jpg",
+      "gallery": [
+        "uploads/work-drama-frames.jpg"
+      ],
+      "video": "uploads/work-drama-clip.mp4",
+      "link": "",
+      "videoPortrait": true,
+      "poster": "uploads/work-drama-poster.jpg"
+    },
+    {
+      "id": "w_crawler",
+      "title": "多平台商业数据采集与智能分析",
+      "badge": "DATA",
+      "year": "",
+      "summary": "58 同城、安居客、闲鱼等多平台商户线索采集，跨平台号码交叉验证 + DeepSeek 语义分析，遇验证码转人工。",
+      "tags": [
+        "Playwright",
+        "DeepSeek",
+        "Webman",
+        "反爬对抗"
+      ],
+      "detail": "传统方式靠人工逐条搜索商户联系方式，效率低、信息碎片化。平台用 Playwright 无头浏览器批量采集，统一提取引擎以正则、DOM 属性、页面脚本多策略抽取号码；同一号码跨平台出现时自动关联，并给出可信度评分把单条线索成本压到毫级。遇到验证码时自动截图，经 Socket.IO 推送到人工介入台，操作员完成验证后爬虫自动恢复。后台基于 EasyAdmin8（Webman + Layui），另用 Rubix ML 做购买意向预测，CronProcess 负责定时采集与清洗。",
+      "role": [
+        "多平台爬虫与反爬策略",
+        "号码提取引擎与跨平台交叉验证",
+        "验证码人工介入（WebSocket）",
+        "后台管理与定时调度"
+      ],
+      "cover": "uploads/work-crawler.jpg",
+      "gallery": [],
+      "video": "",
+      "link": ""
+    },
+    {
+      "id": "w_tougao",
+      "title": "校园墙投稿小程序",
+      "badge": "MINIAPP",
+      "year": "",
+      "summary": "微信生态的校园墙：匿名投稿、墙主审核、评论互动、佣金结算，Canvas 生成投稿海报一键存相册。",
+      "tags": [
+        "微信支付",
+        "WebSocket",
+        "Canvas",
+        "佣金结算"
+      ],
+      "detail": "把线下「贴墙」搬到小程序，形成「用户投稿 → 墙主审核 → 内容发布 → 互动评论 → 佣金结算」的闭环。投稿支持文字、图片、标签与背景色，提交前可预览；审核结果、点赞、评论通过 WebSocket 实时推送。墙主端有数据统计、二维码生成与群聊管理，佣金明细对接微信支付与提现审核；管理后台覆盖用户、投稿、评论、墙主申请、提现、通知与协议管理。",
+      "role": [
+        "投稿与审核状态机",
+        "WebSocket 实时通知",
+        "墙主佣金与微信支付提现",
+        "Canvas 海报生成"
+      ],
+      "cover": "uploads/work-tougao.jpg",
+      "gallery": [],
+      "video": "",
+      "link": ""
+    },
+    {
+      "id": "w_health",
+      "title": "慢病健康监测小程序",
+      "badge": "MINIAPP",
+      "year": "",
+      "summary": "血糖、血压、体重、腰围四指标录入与趋势分析，自动算 BMR / BMI，附 RBAC 后台与 MCP 工具集。",
+      "tags": [
+        "微信小程序",
+        "Webman",
+        "Redis",
+        "MCP"
+      ],
+      "detail": "面向糖尿病、高血压等慢病患者的轻量工具：首页仪表盘给出 BMR 与四项指标最新值及最近 10 条混合记录，各指标独立录入并按 7 / 30 / 90 天输出趋势图，附均值、极值与次数统计。前端 UniApp + Vue 3（9 个页面，统一 api.js，Token 认证），后端 Webman + PHP 8.2 按 Controller → Service → Model 分层，MySQL 连接池 + Redis 缓存 Token（24 小时自动续期）。另接 php-mcp/server，暴露 17 个工具与 3 个资源供 AI 辅助开发。",
+      "role": [
+        "指标模型与统计口径",
+        "BMR / BMI 计算与趋势聚合",
+        "Token 鉴权与 Redis 续期",
+        "MCP 工具集封装"
+      ],
+      "cover": "uploads/work-health.jpg",
+      "gallery": [],
+      "video": "",
+      "link": ""
+    },
+    {
+      "id": "w_checkin",
+      "title": "多账号自动签到工具",
+      "badge": "TOOL",
+      "year": "",
+      "summary": "WorkBuddy / Trae 多账号每日自动领取积分，Windows 计划任务早晚各跑一次，跑完发汇总邮件。",
+      "tags": [
+        "Python",
+        "计划任务",
+        "Token 续期",
+        "SMTP"
+      ],
+      "detail": "多账号场景下逐个手动签到容易漏。脚本按槽位由 Windows 计划任务触发（上午正常签到、下午补签），token 过期自动续期，签到结果写入共享日志并刷新各账号状态表（今日签到 / 连续天数 / 积分余额），两个产品跑完分别发一封汇总邮件。配套切号入口支持中文菜单与命令行两种方式。",
+      "role": [
+        "多账号 token 续期与签到调度",
+        "计划任务与补签槽位设计",
+        "状态表刷新与汇总邮件"
+      ],
+      "cover": "uploads/work-checkin.jpg",
+      "gallery": [],
+      "video": "",
+      "link": ""
+    }
+  ]
+}
