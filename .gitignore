@@ -1,3 +1,7 @@
 .DS_Store
 Thumbs.db
 .workbuddy/
+
+# 临时构建稿
+.mock/
+.workbuddy/
