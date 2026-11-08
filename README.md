@@ -220,6 +220,12 @@ GitHub Pages 会在 30–60 秒后自动重建。**没变化通常就是没推�
 git -c http.proxy="$http_proxy" -c https.proxy="$http_proxy" push
 ```
 
+若 `push` 长时间没有任何输出、最后返回 `401 Unauthorized`，是系统凭据管理器里没有 GitHub 凭据、又不能弹窗输入。用令牌临时推（不写进 `.git/config`）：
+
+```bash
+git push "https://x-access-token:${GITHUB_TOKEN}@github.com/edrin09/edrin.git" main
+```
+
 ## 提交前检查清单
 
 发布前扫一眼，这四件事能挡掉九成的线上事故：
@@ -243,8 +249,8 @@ git -c http.proxy="$http_proxy" -c https.proxy="$http_proxy" push
 **案例区一直显示「案例正在整理中」？**
 说明 `content.json` 没被读到：要么用 `file://` 直接打开了，要么 JSON 语法坏了（`fetch` 解析失败会走兜底），要么文件名拼错（必须是根目录的 `content.json`）。
 
-**封面图裂了/显示占位块？**
-`cover` 路径大小写与实际文件不一致，或图片没提交（`.gitignore` 挡住了？）。`uploads/` 不在忽略列表里。
+**封面图裂了 / 列表里出现灰色占位块？**
+`cover` 路径大小写与实际文件不一致，或图片没提交（`.gitignore` 挡住了？）。`uploads/` 不在忽略列表里。所有图片（缩略图、封面、图集）加载失败都会自动换成占位块，不会出现破图标——看到占位块就是路径有问题。
 
 **加了第九个案例，`promote/` 要不要同步？**
 要。`promote/config.json` 的 `repos` 数组是另一份清单，加一条记录（含本地路径、仓库名、描述）才会纳入每日体检与门面同步。
