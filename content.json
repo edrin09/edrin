@@ -5,9 +5,7 @@
     "phone": "15389232340",
     "phoneNote": "工作日 9:00 – 19:00",
     "email": "y_p09@163.com",
-    "wechat": "PengYunZhiMa",
-    "address": "西安市未央区",
-    "addressNote": "详细地址请预约后提供"
+    "wechat": "PengYunZhiMa"
   },
   "works": [
     {
@@ -34,7 +32,18 @@
         "uploads/work-boki-plugins.jpg"
       ],
       "video": "",
-      "link": "https://edrin09.github.io/boki/"
+      "links": [
+        {
+          "platform": "GitHub",
+          "label": "在线演示",
+          "url": "https://edrin09.github.io/boki/"
+        },
+        {
+          "platform": "Gitee",
+          "label": "源码仓库",
+          "url": "https://gitee.com/edrin/boki"
+        }
+      ]
     },
     {
       "id": "w_tts",
@@ -58,7 +67,18 @@
       "cover": "uploads/work-tts.jpg",
       "gallery": [],
       "video": "",
-      "link": "https://github.com/edrin09/tts"
+      "links": [
+        {
+          "platform": "GitHub",
+          "label": "源码仓库",
+          "url": "https://github.com/edrin09/tts"
+        },
+        {
+          "platform": "Gitee",
+          "label": "源码仓库",
+          "url": "https://gitee.com/edrin/tts"
+        }
+      ]
     },
     {
       "id": "w_drama",
@@ -83,7 +103,18 @@
         "uploads/work-drama-frames.jpg"
       ],
       "video": "uploads/work-drama-clip.mp4",
-      "link": "https://github.com/edrin09/LocalMiniDrama",
+      "links": [
+        {
+          "platform": "GitHub",
+          "label": "源码仓库",
+          "url": "https://github.com/edrin09/LocalMiniDrama"
+        },
+        {
+          "platform": "Gitee",
+          "label": "源码仓库",
+          "url": "https://gitee.com/edrin/LocalMiniDrama"
+        }
+      ],
       "videoPortrait": true,
       "poster": "uploads/work-drama-poster.jpg"
     },
@@ -109,7 +140,18 @@
       "cover": "uploads/work-crawler.jpg",
       "gallery": [],
       "video": "",
-      "link": "https://github.com/edrin09/leadcrawler"
+      "links": [
+        {
+          "platform": "GitHub",
+          "label": "源码仓库",
+          "url": "https://github.com/edrin09/leadcrawler"
+        },
+        {
+          "platform": "Gitee",
+          "label": "源码仓库",
+          "url": "https://gitee.com/edrin/leadcrawler"
+        }
+      ]
     },
     {
       "id": "w_tougao",
@@ -133,7 +175,19 @@
       "cover": "uploads/work-tougao.jpg",
       "gallery": [],
       "video": "",
-      "link": "https://github.com/edrin09/tougao"
+      "link": "",
+      "links": [
+        {
+          "platform": "GitHub",
+          "label": "源码仓库",
+          "url": "https://github.com/edrin09/tougao"
+        },
+        {
+          "platform": "Gitee",
+          "label": "源码仓库",
+          "url": "https://gitee.com/edrin/tougao"
+        }
+      ]
     },
     {
       "id": "w_health",
@@ -157,7 +211,19 @@
       "cover": "uploads/work-health.jpg",
       "gallery": [],
       "video": "",
-      "link": "https://github.com/edrin09/health-monitor"
+      "link": "",
+      "links": [
+        {
+          "platform": "GitHub",
+          "label": "源码仓库",
+          "url": "https://github.com/edrin09/health-monitor"
+        },
+        {
+          "platform": "Gitee",
+          "label": "源码仓库",
+          "url": "https://gitee.com/edrin/health-monitor"
+        }
+      ]
     },
     {
       "id": "w_checkin",
@@ -180,7 +246,18 @@
       "cover": "uploads/work-checkin.jpg",
       "gallery": [],
       "video": "",
-      "link": "https://github.com/edrin09/checkin"
+      "links": [
+        {
+          "platform": "GitHub",
+          "label": "源码仓库",
+          "url": "https://github.com/edrin09/checkin"
+        },
+        {
+          "platform": "Gitee",
+          "label": "源码仓库",
+          "url": "https://gitee.com/edrin/checkin"
+        }
+      ]
     }
   ]
 }

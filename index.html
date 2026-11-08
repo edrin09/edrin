@@ -22,7 +22,7 @@
 <meta property="og:title" content="鹏云智码 · 把 AI 装进你自己的机房">
 <meta property="og:description" content="模型、智能体、技能库与多模态识别，整套跑在企业内网。">
 <meta property="og:type" content="website">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230b0c0d'/%3E%3Cpath d='M20 42V22h9a6 6 0 0 1 0 12h-9m11 0 8 8' stroke='%23d8ff3e' stroke-width='4.5' fill='none' stroke-linecap='square'/%3E%3C/svg%3E">
+<link rel="icon" type="image/png" href="favicon.png">
 <style>
   :root{
     --paper:#f1f0eb;
@@ -75,10 +75,7 @@
   .nav.scrolled{background:rgba(241,240,235,.82);backdrop-filter:blur(14px) saturate(1.4);border-bottom-color:var(--line)}
   .nav-in{display:flex;align-items:center;gap:28px;height:72px}
   .brand{display:flex;align-items:center;gap:10px;flex-shrink:0}
-  .brand-mark{
-    width:30px;height:30px;border-radius:7px;background:var(--ink);color:var(--lime);
-    display:grid;place-items:center;font-family:var(--mono);font-size:15px;font-weight:700;letter-spacing:-.06em;
-  }
+  .brand-mark{width:34px;height:34px;display:block;flex-shrink:0;object-fit:contain}
   .brand-name{font-size:14.5px;font-weight:650;letter-spacing:-.01em;line-height:1.15}
   .brand-name small{display:block;font-family:var(--mono);font-size:9px;color:var(--dim);letter-spacing:.14em;font-weight:400;margin-top:2px}
 
@@ -375,9 +372,13 @@
   .stack{display:flex;flex-wrap:wrap;gap:5px;margin-top:18px}
   .stack span{font-family:var(--mono);font-size:9px;padding:3px 7px;border-radius:3px;
     background:rgba(11,12,13,.05);color:var(--ink-2)}
+  .link-row{display:flex;flex-wrap:wrap;gap:10px 24px;align-items:center;margin-top:18px}
   .link-arrow{display:inline-flex;align-items:center;gap:6px;font-size:12px;border-bottom:1px solid var(--ink);
     padding-bottom:2px;transition:gap .2s}
   .link-arrow:hover{gap:9px}
+  .link-plat{font-family:var(--mono);font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--dim);
+    border:1px solid var(--line);border-radius:3px;padding:2px 5px;transition:color .2s,border-color .2s}
+  .link-arrow:hover .link-plat{color:var(--ink);border-color:var(--ink)}
 
   .work-media{margin:26px 12px 34px 166px;display:flex;flex-direction:column;gap:12px}
   .media-cover{display:block;border:1px solid var(--line);border-radius:8px;overflow:hidden;padding:0;background:#e6e5de;cursor:zoom-in}
@@ -404,34 +405,47 @@
 
   /* ---------- 联系 ---------- */
   .contact{background:var(--paper-2)}
-  .contact-grid{display:grid;grid-template-columns:.95fr 1.05fr;gap:56px;align-items:start}
-  .contact-list{display:flex;flex-direction:column;gap:0;margin-top:34px;border-top:1px solid var(--line)}
-  .contact-item{display:flex;align-items:flex-start;gap:13px;padding:16px 0;border-bottom:1px solid var(--line)}
-  .contact-item .ci{width:30px;height:30px;border-radius:7px;border:1px solid var(--line);display:grid;place-items:center;
-    flex-shrink:0;color:var(--ink-2);background:rgba(255,255,255,.5)}
-  .contact-item .ci svg{width:14px;height:14px}
-  .contact-item .k{display:block;font-family:var(--mono);font-size:9px;letter-spacing:.14em;color:var(--dim);margin-bottom:2px}
-  .contact-item .v{display:block;font-size:13.5px;color:var(--ink)}
-  .contact-item .v small{color:var(--dim);font-size:11px;margin-left:6px}
-  .contact-item.copyable{cursor:pointer}
-  .contact-item.copyable:hover .v{color:var(--teal)}
+  .contact-head{max-width:660px}
+  .contact-head .sec-title{margin-bottom:18px}
+  .contact-head .sec-note{max-width:48ch}
 
-  .form-card{background:var(--white);border:1px solid var(--line);border-radius:12px;padding:30px 30px 28px}
-  .form-card h3{font-size:17px;font-weight:640;margin:0 0 4px;letter-spacing:-.01em}
-  .form-card .tip{font-size:11.5px;color:var(--dim);margin:0 0 22px}
-  .field{margin-bottom:15px}
-  .field label{display:block;font-family:var(--mono);font-size:9.5px;letter-spacing:.1em;color:var(--dim);
-    text-transform:uppercase;margin-bottom:7px}
-  .field input,.field textarea,.field select{
-    width:100%;background:var(--paper);border:1px solid var(--line);border-radius:7px;
-    padding:11px 12px;font-family:inherit;font-size:13px;color:var(--ink);outline:none;transition:border-color .2s,background .2s;
+  .ways{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:40px}
+  .way{
+    display:flex;flex-direction:column;align-items:flex-start;
+    background:var(--white);border:1px solid var(--line);border-radius:10px;
+    padding:22px 22px 16px;color:inherit;text-decoration:none;position:relative;overflow:hidden;
+    transition:border-color .22s,transform .22s,box-shadow .22s,background .22s;
   }
-  .field input:focus,.field textarea:focus,.field select:focus{border-color:var(--ink);background:#fff}
-  .field textarea{resize:vertical;min-height:96px;line-height:1.65}
-  .field.row2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-  .field.row2>*{margin-bottom:0}
-  .form-card .btn{width:100%;justify-content:center;margin-top:6px}
-  .form-note{font-size:10.5px;color:var(--dim);margin-top:12px;line-height:1.6;text-align:center}
+  .way::after{
+    content:"";position:absolute;left:0;top:0;width:100%;height:2px;background:var(--lime);
+    transform:scaleX(0);transform-origin:left;transition:transform .32s cubic-bezier(.2,.85,.25,1);
+  }
+  .way:hover{border-color:#b9b8af;transform:translateY(-3px);box-shadow:0 14px 30px -22px rgba(11,12,13,.55);background:#fff}
+  .way:hover::after{transform:scaleX(1)}
+  .way::before{
+    content:attr(data-i);position:absolute;top:24px;right:22px;
+    font-family:var(--mono);font-size:10px;letter-spacing:.14em;color:var(--dim);opacity:.55
+  }
+  .way .w-ic{
+    width:32px;height:32px;border-radius:8px;border:1px solid var(--line);background:var(--paper);
+    display:grid;place-items:center;color:var(--ink-2);margin-bottom:17px;
+    transition:background .22s,color .22s,border-color .22s;
+  }
+  .way .w-ic svg{width:15px;height:15px}
+  .way:hover .w-ic{background:var(--lime);border-color:var(--lime);color:var(--ink)}
+  .way .w-k{font-family:var(--mono);font-size:9px;letter-spacing:.16em;text-transform:uppercase;color:var(--dim);margin-bottom:6px}
+  .way .w-v{font-size:15.5px;font-weight:620;letter-spacing:-.01em;color:var(--ink);word-break:break-word;line-height:1.35}
+  .way .w-sub{font-size:11.5px;color:var(--dim);margin-top:6px;line-height:1.55}
+  .way .w-act{
+    display:flex;align-items:center;gap:6px;width:100%;margin-top:auto;padding-top:15px;
+    font-family:var(--mono);font-size:9.5px;letter-spacing:.1em;color:var(--ink-2);
+    border-top:1px solid var(--line-2);
+  }
+  .way .w-act span{margin:0}
+  .way .w-act svg{width:11px;height:11px;margin-left:auto;transition:transform .22s}
+  .way:hover .w-act svg{transform:translate(2px,-2px)}
+  .way.copyable{cursor:pointer}
+  .way:focus-visible{outline:2px solid var(--ink);outline-offset:3px}
 
   /* ---------- 页脚 ---------- */
   footer{border-top:1px solid var(--line);padding:44px 0 34px}
@@ -495,7 +509,6 @@
     .flow{grid-template-columns:repeat(2,1fr)}
     .step{border-bottom:1px solid var(--line)}
     .step:nth-child(2n){border-right:0}
-    .contact-grid{grid-template-columns:1fr;gap:34px}
     .work-detail{padding-left:12px;grid-template-columns:1fr;gap:26px}
     .work-media{margin-left:12px}
   }
@@ -514,6 +527,7 @@
     .work-tags,.work-year{display:none}
     .gallery{flex-wrap:wrap}
     .gallery button{flex:1 1 calc(50% - 5px)}
+    .ways{grid-template-columns:1fr}
     .foot-links{gap:18px}
   }
   @media (max-width:560px){
@@ -528,8 +542,7 @@
     .work-arrow{display:none}
     .work-index{font-size:9.5px}
     .work-desc{-webkit-line-clamp:2;display:-webkit-box}
-    .form-card{padding:22px 18px}
-    .field.row2{grid-template-columns:1fr}
+    .way{padding:18px 18px 14px}
     .hero-title{letter-spacing:-.04em}
     .toTop{right:16px;bottom:16px}
     .lightbox{padding:16px}
@@ -726,10 +739,8 @@
   .work-thumb.empty svg{color:#a3a29a;transition:color .3s}
   .work-item:hover .work-thumb.empty svg{color:var(--ink)}
 
-  /* ---------- 表单 ---------- */
-  .field input:focus,.field textarea:focus,.field select:focus{
-    border-color:var(--ink);box-shadow:0 0 0 3px rgba(216,255,62,.45);outline:none;
-  }
+  /* ---------- 联系卡 ---------- */
+  .way{will-change:transform}
 
   /* ---------- 页脚 ---------- */
   footer{border-top:1px solid var(--ink)!important;position:relative}
@@ -750,7 +761,7 @@
 <header class="nav" id="nav">
   <div class="wrap nav-in">
     <a class="brand" href="#home" aria-label="鹏云智码首页">
-      <span class="brand-mark">R</span>
+      <img class="brand-mark" src="uploads/logo-128.png" alt="鹏云智码" width="34" height="34" decoding="async">
       <span class="brand-name">鹏云智码<small>PENGYUN AI LAB</small></span>
     </a>
     <nav class="nav-links" aria-label="主导航">
@@ -762,7 +773,7 @@
       <a href="#contact">联系</a>
     </nav>
     <a class="btn" href="#contact">
-      预约演示
+      联系我们
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
     </a>
     <button class="burger" id="burger" aria-label="打开菜单" aria-expanded="false" aria-controls="mobileMenu">
@@ -777,7 +788,7 @@
   <a href="#vision">多模态识别</a>
   <a href="#security">本地化与安全</a>
   <a href="#work">交付案例</a>
-  <a href="#contact">预约演示</a>
+  <a href="#contact">联系我们</a>
 </div>
 
 <main>
@@ -798,7 +809,7 @@
           </p>
           <div class="hero-cta">
             <a class="btn" href="#contact">
-              预约一次现场演示
+              说说你的场景
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
             </a>
             <a class="link" href="#work">
@@ -1099,66 +1110,46 @@
   <!-- 联系 -->
   <section class="sec contact" id="contact">
     <div class="wrap">
-      <div class="contact-grid">
-        <div>
-          <div class="eyebrow">07 / Contact</div>
-          <h2 class="sec-title">先聊聊你的<em>数据</em>。</h2>
-
-          <div class="contact-list">
-            <a class="contact-item" id="cPhoneLink" href="tel:02988888888">
-              <span class="ci"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2Z"/></svg></span>
-              <span><span class="k">Phone</span><span class="v"><span id="cPhone">15389232340</span> <small id="cPhoneNote">工作日 9:00 – 19:00</small></span></span>
-            </a>
-            <a class="contact-item" id="cEmailLink" href="mailto:y_p09@163.com">
-              <span class="ci"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="4.5" width="19" height="15" rx="2.5"/><path d="m3 6.5 9 6 9-6"/></svg></span>
-              <span><span class="k">Email</span><span class="v"><span id="cEmail">y_p09@163.com</span></span></span>
-            </a>
-            <div class="contact-item copyable" id="cWechatRow" data-copy="PengYunZhiMa" role="button" tabindex="0" aria-label="复制微信号">
-              <span class="ci"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M8.5 3.5 10 8l-2 2a13 13 0 0 0 6 6l2-2 4.5 1.5V20a2 2 0 0 1-2.2 2A18.5 18.5 0 0 1 2 5.7 2 2 0 0 1 4 3.5h4.5Z"/></svg></span>
-              <span><span class="k">WeChat</span><span class="v"><span id="cWechat">PengYunZhiMa</span> <small>点击复制</small></span></span>
-            </div>
-          </div>
-        </div>
-
-        <form class="form-card" id="inquiryForm" novalidate>
-          <h3>说下你的场景</h3>
-          <p class="tip">填完会生成一封预填好的邮件，不经过任何第三方表单服务。</p>
-
-          <div class="field row2">
-            <div>
-              <label for="fname">称呼</label>
-              <input id="fname" name="name" type="text" placeholder="怎么称呼你" autocomplete="name">
-            </div>
-            <div>
-              <label for="fcontact">联系方式</label>
-              <input id="fcontact" name="contact" type="text" placeholder="手机 / 微信" autocomplete="tel">
-            </div>
-          </div>
-
-          <div class="field" style="margin-top:15px">
-            <label for="ftype">想做的事</label>
-            <select id="ftype" name="type">
-              <option>智能体 / 流程自动化</option>
-              <option>多模态识别（票据 / 图纸 / 质检）</option>
-              <option>企业私有知识库</option>
-              <option>模型微调与评测</option>
-              <option>本地化部署咨询</option>
-              <option>还没想好，先聊聊</option>
-            </select>
-          </div>
-
-          <div class="field">
-            <label for="fdesc">简单描述</label>
-            <textarea id="fdesc" name="desc" placeholder="现在用什么系统、数据大概什么量级、能不能出内网…"></textarea>
-          </div>
-
-          <button class="btn" type="submit">
-            生成咨询邮件
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-          </button>
-          <p class="form-note">也可以直接加微信，备注「AI 场景」。</p>
-        </form>
+      <div class="contact-head">
+        <div class="eyebrow">07 / Contact</div>
+        <h2 class="sec-title">先聊聊你的<em>数据</em>。</h2>
+        <p class="sec-note">
+          你现在有什么系统、数据在谁手里、能不能出网 —— 把这三点说清楚，我们就能判断这事能不能做、大概多少钱。
+        </p>
       </div>
+
+      <div class="ways">
+        <a class="way" id="cPhoneLink" data-i="01" href="tel:15389232340">
+          <span class="w-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2Z"/></svg></span>
+          <span class="w-k">Phone</span>
+          <span class="w-v" id="cPhone">15389232340</span>
+          <span class="w-sub" id="cPhoneNote">工作日 9:00 – 19:00</span>
+          <span class="w-act">拨打电话
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M9 7h8v8"/></svg>
+          </span>
+        </a>
+
+        <a class="way" id="cEmailLink" data-i="02" href="mailto:y_p09@163.com">
+          <span class="w-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="4.5" width="19" height="15" rx="2.5"/><path d="m3 6.5 9 6 9-6"/></svg></span>
+          <span class="w-k">Email</span>
+          <span class="w-v" id="cEmail">y_p09@163.com</span>
+          <span class="w-sub">把场景写清楚，回信会附方案思路</span>
+          <span class="w-act">写邮件
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M9 7h8v8"/></svg>
+          </span>
+        </a>
+
+        <div class="way copyable" id="cWechatRow" data-i="03" data-copy="PengYunZhiMa" role="button" tabindex="0" aria-label="复制微信号">
+          <span class="w-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M8.5 3.5 10 8l-2 2a13 13 0 0 0 6 6l2-2 4.5 1.5V20a2 2 0 0 1-2.2 2A18.5 18.5 0 0 1 2 5.7 2 2 0 0 1 4 3.5h4.5Z"/></svg></span>
+          <span class="w-k">WeChat</span>
+          <span class="w-v" id="cWechat">PengYunZhiMa</span>
+          <span class="w-sub">加好友时备注一下来意</span>
+          <span class="w-act">点击复制微信号
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h8"/></svg>
+          </span>
+        </div>
+      </div>
+
     </div>
   </section>
 </main>
@@ -1168,7 +1159,7 @@
     <div class="foot-top">
       <div class="foot-brand">
         <a class="brand" href="#home">
-          <span class="brand-mark">R</span>
+          <img class="brand-mark" src="uploads/logo-128.png" alt="鹏云智码" width="34" height="34" decoding="async">
           <span class="brand-name">鹏云智码<small>PENGYUN AI LAB</small></span>
         </a>
         <p id="cName">西安市未央区鹏云智码软件开发部</p>
@@ -1654,9 +1645,7 @@
       phone: "15389232340",
       phoneNote: "工作日 9:00 – 19:00",
       email: "y_p09@163.com",
-      wechat: "PengYunZhiMa",
-      address: "西安市未央区",
-      addressNote: "详细地址请预约后提供"
+      wechat: "PengYunZhiMa"
     },
     works: []
   };
@@ -1725,9 +1714,15 @@
     var stackHtml = (w.tags || []).length
       ? '<div class="stack">' + w.tags.map(function(t){ return "<span>" + esc(t) + "</span>"; }).join("") + "</div>"
       : "";
-    var linkHtml = w.link
-      ? '<div style="margin-top:18px"><a class="link-arrow" href="' + esc(w.link) +
-        '" target="_blank" rel="noopener">访问项目 <svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M9 7h8v8"/></svg></a></div>'
+    var arrowSvg = '<svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M9 7h8v8"/></svg>';
+    var links = (Array.isArray(w.links) ? w.links : []).filter(function(l){ return l && l.url; });
+    if (!links.length && w.link) links = [{ url: w.link, label: "访问项目" }];
+    var linkHtml = links.length
+      ? '<div class="link-row">' + links.map(function(l){
+          return '<a class="link-arrow" href="' + esc(l.url) + '" target="_blank" rel="noopener">' +
+            (l.platform ? '<span class="link-plat">' + esc(l.platform) + '</span>' : '') +
+            esc(l.label || "访问项目") + arrowSvg + '</a>';
+        }).join("") + '</div>'
       : "";
     var imgCount = (w.cover ? 1 : 0) + (w.gallery || []).length;
     var thumb = w.cover
@@ -1778,8 +1773,6 @@
     setText("cPhoneNote", SITE.phoneNote);
     setText("cEmail", SITE.email);
     setText("cWechat", SITE.wechat);
-    setText("cAddress", SITE.address);
-    setText("cAddressNote", SITE.addressNote);
     setText("cName", SITE.name);
     var tel = document.getElementById("cPhoneLink");
     if (tel) tel.href = "tel:" + (SITE.phone || "").replace(/[^\d+]/g, "");
@@ -1925,26 +1918,14 @@
     });
   }
 
-  /* ---------- 表单：生成邮件 ---------- */
-  var form = document.getElementById("inquiryForm");
-  form.addEventListener("submit", function(e){
-    e.preventDefault();
-    var name = document.getElementById("fname").value.trim();
-    var contact = document.getElementById("fcontact").value.trim();
-    var type = document.getElementById("ftype").value;
-    var desc = document.getElementById("fdesc").value.trim();
-    if (!name || !contact){
-      showToast("请填写称呼和联系方式，方便我们回复你");
-      (!name ? document.getElementById("fname") : document.getElementById("fcontact")).focus();
-      return;
-    }
-    var subject = "场景咨询｜" + type + "｜" + name;
-    var body = "称呼：" + name + "\n联系方式：" + contact + "\n想做的事：" + type + "\n\n场景描述：\n" + (desc || "（未填写）") + "\n";
-    var href = "mailto:" + (SITE.email || "y_p09@163.com") +
-      "?subject=" + encodeURIComponent(subject) + "&body=" + encodeURIComponent(body);
-    window.location.href = href;
-    showToast("已生成邮件，在邮件客户端里点发送即可");
-  });
+  /* ---------- 邮件链接带上预设主题 ---------- */
+  var mailLink = document.getElementById("cEmailLink");
+  if (mailLink){
+    mailLink.addEventListener("click", function(){
+      var subject = "场景咨询｜" + (SITE.shortName || "鹏云智码");
+      mailLink.href = "mailto:" + (SITE.email || "y_p09@163.com") + "?subject=" + encodeURIComponent(subject);
+    });
+  }
 })();
 
 /* ---------- 视觉增强：Hero 点阵星图 + 鼠标聚光 ---------- */

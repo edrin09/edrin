@@ -34,8 +34,10 @@ Pages 会在 30–60 秒后自动重建，无需额外操作。
 
 | 字段 | 说明 |
 |---|---|
-| `site` | 联系方式：名称、电话、邮箱、微信、地址 |
+| `site` | 联系方式：名称、电话、邮箱、微信 |
 | `works` | 作品集，**数组顺序即页面展示顺序** |
+
+> 联系区块是三个直达入口（拨号 / 写邮件 / 复制微信号），页面不放在线表单——纯静态站没有接收端，表单提交收不到数据。
 
 每件作品的字段：
 
@@ -54,9 +56,14 @@ Pages 会在 30–60 秒后自动重建，无需额外操作。
   "video": "",                 // 视频：mp4 直链或 B 站链接
   "poster": "",                // 视频封面帧，不填用 cover
   "videoPortrait": false,      // 竖屏视频填 true，按 9:16 显示
-  "link": "https://..."        // 「访问项目」链接，留空不显示
+  "links": [                   // 项目地址，可写多个平台，留空不显示
+    { "platform": "GitHub", "label": "源码仓库", "url": "https://github.com/..." },
+    { "platform": "Gitee",  "label": "源码仓库", "url": "https://gitee.com/..." }
+  ]
 }
 ```
+
+> 旧写法 `"link": "https://..."` 仍然兼容，等价于只显示一个「访问项目」链接；同时存在时以 `links` 为准。
 
 **加图片**：把图片放进 `uploads/`，`cover` 写相对路径即可，例如 `"cover": "uploads/boki.png"`。
 
@@ -78,5 +85,14 @@ python -m http.server 8080
 ```
 index.html     页面（样式与脚本全部内联，单文件）
 content.json   内容数据
+favicon.png    浏览器标签图标
 uploads/       图片与视频素材
+  logo.png       品牌标识主图 480×480（透明底，供大尺寸/印刷）
+  logo-128.png   页头与页脚用的 128×128（透明底）
 ```
+
+## 品牌标识
+
+标识已去白底、裁去留白，透明 PNG，可直接叠在任意底色上。页头与页脚使用 `uploads/logo-128.png`（显示尺寸 34px，覆盖 2× 屏），主图 `uploads/logo.png` 备用于更大尺寸的场景。
+
+换 logo 时按同样规格出一张透明 PNG 覆盖这两个文件即可，不必改代码。若要调页头尺寸，改 `index.html` 里的 `.brand-mark{width:34px;height:34px}` 与 `<img>` 的 `width/height` 两处（页头与页脚）。
