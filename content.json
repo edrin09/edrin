@@ -81,6 +81,41 @@
       ]
     },
     {
+      "id": "w_offline",
+      "title": "OfflineAI · 没有显卡的笔记本跑 30B",
+      "badge": "LOCAL",
+      "year": "",
+      "summary": "没有独显的笔记本跑 30B MoE：纯 CPU 13.67 tok/s，二次 prefill 19s→73ms，OpenAI 兼容、断网可用、零 API 费用。",
+      "tags": [
+        "ik_llama.cpp",
+        "MoE 量化",
+        "CPU 推理",
+        "OpenAI 兼容"
+      ],
+      "detail": "大多数本地部署教程的第一句话都是「先买张 4090」，这套方案的前提反过来：只有一颗 Ryzen 7 5800U 和 32GB DDR4，核显 496MB 等于没有。能跑起来靠三件事——选 MoE 而不是 dense（Qwen3-Coder 30B 每个 token 只激活 3B，CPU 上的瓶颈是内存带宽，激活量直接决定快慢）；把引擎换成 ik_llama.cpp（冷启动 prefill 快 3.4 倍、4K 上下文生成快 2.1 倍，官方 llama.cpp 慢 2~3 倍且调不回来）；把缓存榨到极限（prompt 缓存让同一段上下文的二次提问从 19 秒降到 73 毫秒，KV 缓存槽 4K 存盘 111ms / 恢复 55ms，服务重启后第一轮就是热的）。12K 上下文的 30B 模型占 18.5GB 内存，实测生成 13.67 tok/s、编程正确率 5/6、tool-calling 两轮闭环可用；换成 16B MoE 的 Ling-mini 做长文阅读，速度快 2.3~3.6 倍、内存只占 10.5GB。所有参数集中在一个 .env，双击一个 bat 就能在「写代码」和「读长文」两个模型之间切换。",
+      "role": [
+        "引擎选型与参数调优（ik_llama.cpp / KV 量化 / 线程绑定物理核）",
+        "两层缓存设计：prompt 缓存 + KV 缓存槽热启动",
+        "3×3 基准测试方法（三档上下文 × 三档任务）与自动判分脚本",
+        "中文日志过滤器、按天滚动落盘与启动前配置体检"
+      ],
+      "cover": "uploads/work-offlineai.jpg",
+      "gallery": [],
+      "video": "",
+      "links": [
+        {
+          "platform": "GitHub",
+          "label": "源码仓库",
+          "url": "https://github.com/edrin09/offline-ai"
+        },
+        {
+          "platform": "Gitee",
+          "label": "源码仓库",
+          "url": "https://gitee.com/edrin/offline-ai"
+        }
+      ]
+    },
+    {
       "id": "w_drama",
       "title": "AI 漫剧生成系统",
       "badge": "AIGC",
