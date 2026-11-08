@@ -5,3 +5,6 @@ Thumbs.db
 # 临时构建稿
 .mock/
 .workbuddy/
+
+# 推广自动化：本地工具，不随站点发布（详见 promote/README.md）
+promote/
