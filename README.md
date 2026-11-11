@@ -79,8 +79,8 @@ pengyun-site/
 ├─ content.json          内容数据：site 联系方式 + works 作品集
 ├─ favicon.png           浏览器标签图标
 ├─ uploads/              图片与视频素材（含 logo）
-│  ├─ logo.png             品牌主图 480×480，透明底（大尺寸/印刷备用）
 │  ├─ logo-128.png         页头页脚用 128×128，透明底
+│  ├─ reel-*               能力演示区视频与海报帧
 │  └─ work-*.jpg/.mp4      各案例的封面、图集、视频
 ├─ docs/                 README 用的截图（preview.jpg / work.jpg），与站点无关
 ├─ pengyun2026indexnow.txt  IndexNow 校验文件，必须能被站点根路径访问

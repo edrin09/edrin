@@ -7,6 +7,37 @@
     "email": "y_p09@163.com",
     "wechat": "PengYunZhiMa"
   },
+  "reel": [
+    {
+      "id": "bookkeeping",
+      "title": "BOKI · AI 智能记账",
+      "desc": "拖入发票、工资表、银行对账单，AI 自动识别生成凭证",
+      "src": "uploads/reel-bookkeeping.mp4",
+      "poster": "uploads/reel-bookkeeping.jpg"
+    },
+    {
+      "id": "net",
+      "title": "内网智能体网络",
+      "desc": "多节点本地编排，任务在节点间流转与汇聚",
+      "src": "uploads/reel-net.mp4",
+      "poster": "uploads/reel-net.jpg"
+    },
+    {
+      "id": "vision",
+      "title": "多模态识别",
+      "desc": "单据、票证进模型即成结构化数据",
+      "src": "uploads/reel-vision.mp4",
+      "poster": "uploads/reel-vision.jpg"
+    },
+    {
+      "id": "drama",
+      "title": "AIGC 漫剧生产",
+      "desc": "从角色资产到分镜成片的本地流水线",
+      "src": "uploads/work-drama-clip.mp4",
+      "poster": "uploads/reel-drama.jpg",
+      "fit": "contain"
+    }
+  ],
   "works": [
     {
       "id": "w_boki",
@@ -210,7 +241,6 @@
       "cover": "uploads/work-tougao.jpg",
       "gallery": [],
       "video": "",
-      "link": "",
       "links": [
         {
           "platform": "GitHub",
@@ -246,7 +276,6 @@
       "cover": "uploads/work-health.jpg",
       "gallery": [],
       "video": "",
-      "link": "",
       "links": [
         {
           "platform": "GitHub",

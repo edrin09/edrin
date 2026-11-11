@@ -392,6 +392,40 @@
   .video-box{border:1px solid var(--line);border-radius:8px;overflow:hidden;background:#000;aspect-ratio:16/9}
   .video-box video,.video-box iframe{width:100%;height:100%;display:block;border:0;object-fit:contain}
   .video-box.portrait{aspect-ratio:9/16;width:min(100%,352px);align-self:flex-start}
+
+  /* ---------- 能力演示 Reel ---------- */
+  .reel{background:var(--black);color:#e8ebec;padding:110px 0}
+  .reel .eyebrow{color:#7d868b}
+  .reel .eyebrow::before{background:#5f686d}
+  .reel h2{color:#fff}
+  .reel h2 em{background:var(--lime);color:var(--ink)}
+  .reel .sec-note{color:#9aa3a7}
+  .reel .sec-note b{color:#fff}
+  .reel-stage{position:relative;border:1px solid #20262a;border-radius:14px;overflow:hidden;background:#000;aspect-ratio:16/9}
+  .reel-stage video{width:100%;height:100%;object-fit:cover;display:block}
+  .reel-stage.fit-contain video{object-fit:contain}
+  .reel-cap{position:absolute;left:0;right:0;bottom:0;display:flex;align-items:flex-end;justify-content:space-between;gap:16px;
+    padding:52px 22px 18px;background:linear-gradient(180deg,transparent,rgba(0,0,0,.74));pointer-events:none}
+  .reel-cap h3{margin:0;font-size:16.5px;font-weight:640;color:#fff;letter-spacing:-.01em}
+  .reel-cap p{margin:3px 0 0;font-size:12.5px;color:#b9c2c6}
+  .reel-idx{font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;color:#8fa0a6;white-space:nowrap}
+  .reel-idx b{color:var(--lime);font-weight:500}
+  .reel-thumbs{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:14px}
+  .reel-thumb{position:relative;border:1px solid #20262a;border-radius:10px;overflow:hidden;background:#000;cursor:pointer;padding:0;
+    transition:border-color .2s,transform .2s}
+  .reel-thumb:hover{transform:translateY(-2px);border-color:#39424a}
+  .reel-thumb img{width:100%;aspect-ratio:16/9;object-fit:cover;display:block;opacity:.66;transition:opacity .25s}
+  .reel-thumb:hover img{opacity:1}
+  .reel-thumb.active{border-color:var(--lime)}
+  .reel-thumb.active img{opacity:1}
+  .reel-thumb .tt{position:absolute;left:10px;right:34px;bottom:8px;font-family:var(--mono);font-size:9.5px;letter-spacing:.06em;
+    color:#e8ebec;text-align:left;text-shadow:0 1px 6px rgba(0,0,0,.9);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .reel-thumb .tn{position:absolute;right:9px;top:7px;font-family:var(--mono);font-size:9px;letter-spacing:.1em;color:#9aa3a7}
+  .reel-thumb.active .tn{color:var(--lime)}
+  @media (max-width:760px){
+    .reel{padding:76px 0}
+    .reel-thumbs{grid-template-columns:repeat(2,1fr)}
+  }
   .work-empty{padding:60px 12px;color:var(--dim);font-size:13px;text-align:center}
 
   /* ---------- 流程 ---------- */
@@ -765,6 +799,7 @@
       <span class="brand-name">鹏云智码<small>PENGYUN AI LAB</small></span>
     </a>
     <nav class="nav-links" aria-label="主导航">
+      <a href="#reel">演示</a>
       <a href="#capabilities">能力</a>
       <a href="#skills">技能库</a>
       <a href="#vision">多模态</a>
@@ -783,6 +818,7 @@
 </header>
 
 <div class="mmenu" id="mobileMenu">
+  <a href="#reel">能力演示</a>
   <a href="#capabilities">能力</a>
   <a href="#skills">技能库</a>
   <a href="#vision">多模态识别</a>
@@ -850,12 +886,37 @@
     </div>
   </section>
 
+  <!-- 能力演示 Reel -->
+  <section class="reel" id="reel">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <div>
+          <div class="eyebrow">01 / Motion Reel</div>
+          <h2 class="sec-title">能力长什么样，<br><em>放给你看</em>。</h2>
+        </div>
+        <p class="sec-note">下面这些不是概念片——是<b>真实跑在本地硬件上的系统能力</b>与对应场景的演示镜头。无声播放，进来就能看。</p>
+      </div>
+
+      <div class="reel-stage reveal" id="reelStage">
+        <video id="reelVideo" muted loop playsinline preload="metadata"></video>
+        <div class="reel-cap">
+          <div>
+            <h3 id="reelTitle"></h3>
+            <p id="reelDesc"></p>
+          </div>
+          <span class="reel-idx" id="reelIdx"></span>
+        </div>
+      </div>
+      <div class="reel-thumbs" id="reelThumbs" role="tablist" aria-label="演示视频切换"></div>
+    </div>
+  </section>
+
   <!-- 能力 -->
   <section class="sec" id="capabilities">
     <div class="wrap">
       <div class="sec-head reveal">
         <div>
-          <div class="eyebrow">01 / Capabilities</div>
+          <div class="eyebrow">02 / Capabilities</div>
           <h2 class="sec-title">从模型到业务，<br>中间那段我们<em>补上</em>。</h2>
         </div>
         <p class="sec-note">模型本身不难拿，难的是让它理解你的单据、你的图纸、你的流程，并且<b>稳定地跑在不出网的机器上</b>。这六件事我们做成一整套。</p>
@@ -907,7 +968,7 @@
     <div class="wrap">
       <div class="sec-head reveal">
         <div>
-          <div class="eyebrow">02 / Skill Library</div>
+          <div class="eyebrow">03 / Skill Library</div>
           <h2 class="sec-title">智能体不是聊天框，<br>是一组<em>能落地</em>的技能。</h2>
         </div>
         <p class="sec-note">下面是我们已经交付过的技能原型。每个都能独立接入你的系统，也能按你的单据格式<b>现场加一个</b>。</p>
@@ -931,7 +992,7 @@
     <div class="wrap">
       <div class="sec-head reveal">
         <div>
-          <div class="eyebrow">03 / Multimodal</div>
+          <div class="eyebrow">04 / Multimodal</div>
           <h2 class="sec-title">能看、能读、<br>也能<em>听懂</em>。</h2>
         </div>
         <p class="sec-note">不是简单调个 OCR 接口。版式理解、字段对齐、跨页校验，最后输出的是<b>可以直接入库的结构化数据</b>。</p>
@@ -976,7 +1037,7 @@
     <div class="wrap">
       <div class="sec-head reveal">
         <div>
-          <div class="eyebrow">04 / On-Premise &amp; Security</div>
+          <div class="eyebrow">05 / On-Premise &amp; Security</div>
           <h2 class="sec-title">「数据不出内网」<br>这句话写进<em>架构</em>里。</h2>
         </div>
         <p class="sec-note">对制造、医疗、政企来说，能不能上 AI，往往不是效果问题，是<b>数据能不能出这个门</b>。所以我们只做本地。</p>
@@ -1051,7 +1112,7 @@
     <div class="wrap">
       <div class="work-head-row reveal">
         <div>
-          <div class="eyebrow">05 / Selected Work</div>
+          <div class="eyebrow">06 / Selected Work</div>
           <h2 class="sec-title">交付过的<em>场景</em>。</h2>
         </div>
         <p class="sec-note">从几万的单点工具到内部平台，都是能跑起来、有人每天在用的东西。</p>
@@ -1068,7 +1129,7 @@
     <div class="wrap">
       <div class="sec-head reveal" style="margin-bottom:36px">
         <div>
-          <div class="eyebrow">06 / Process</div>
+          <div class="eyebrow">07 / Process</div>
           <h2 class="sec-title">怎么把这事<em>做成</em>。</h2>
         </div>
       </div>
@@ -1111,7 +1172,7 @@
   <section class="sec contact" id="contact">
     <div class="wrap">
       <div class="contact-head">
-        <div class="eyebrow">07 / Contact</div>
+        <div class="eyebrow">08 / Contact</div>
         <h2 class="sec-title">先聊聊你的<em>数据</em>。</h2>
         <p class="sec-note">
           你现在有什么系统、数据在谁手里、能不能出网 —— 把这三点说清楚，我们就能判断这事能不能做、大概多少钱。
@@ -1638,6 +1699,71 @@
     vo.observe(document.getElementById("vision"));
   } else { startVision(); }
 
+  /* ---------- 能力演示 Reel ---------- */
+  var reelStage = document.getElementById("reelStage");
+  var reelVideo = document.getElementById("reelVideo");
+  var reelThumbs = document.getElementById("reelThumbs");
+  var REEL = [], reelCur = -1, reelInView = false;
+  var reduceMotion = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  function setReel(i, autoplay){
+    if (!REEL.length) return;
+    reelCur = (i + REEL.length) % REEL.length;
+    var it = REEL[reelCur];
+    reelStage.classList.toggle("fit-contain", it.fit === "contain");
+    reelVideo.setAttribute("poster", it.poster || "");
+    reelVideo.src = it.src;
+    reelVideo.load();
+    setText("reelTitle", it.title || "");
+    setText("reelDesc", it.desc || "");
+    setText("reelIdx", "");
+    var idxEl = document.getElementById("reelIdx");
+    if (idxEl) idxEl.innerHTML = "<b>" + pad2(reelCur + 1) + "</b> / " + pad2(REEL.length);
+    Array.prototype.forEach.call(reelThumbs.children, function(btn, n){
+      btn.classList.toggle("active", n === reelCur);
+      btn.setAttribute("aria-selected", n === reelCur ? "true" : "false");
+    });
+    if (autoplay && reelInView){
+      var p = reelVideo.play(); if (p && p.catch) p.catch(function(){});
+    }
+  }
+
+  function renderReel(list){
+    REEL = Array.isArray(list) && list.length ? list : (FALLBACK.reel || []);
+    if (!reelStage || !REEL.length) return;
+    reelThumbs.innerHTML = REEL.map(function(it, i){
+      return '<button class="reel-thumb" type="button" role="tab" aria-label="播放：' + esc(it.title) + '">' +
+        '<img src="' + esc(it.poster || "") + '" alt="" loading="lazy" onerror="window.__imgFail(this)">' +
+        '<span class="tn">' + pad2(i + 1) + "</span>" +
+        '<span class="tt">' + esc(it.title) + "</span>" +
+      "</button>";
+    }).join("");
+    reelThumbs.addEventListener("click", function(e){
+      var btn = e.target.closest ? e.target.closest(".reel-thumb") : null;
+      if (!btn) return;
+      var n = Array.prototype.indexOf.call(reelThumbs.children, btn);
+      if (n > -1) setReel(n, true);
+    });
+    setReel(0, false);
+    if (reduceMotion){
+      reelVideo.controls = true;
+      return;
+    }
+    if ("IntersectionObserver" in window){
+      var ro = new IntersectionObserver(function(entries){
+        entries.forEach(function(en){
+          reelInView = en.isIntersecting;
+          if (en.isIntersecting){ var p = reelVideo.play(); if (p && p.catch) p.catch(function(){}); }
+          else reelVideo.pause();
+        });
+      }, { threshold: 0.35 });
+      ro.observe(reelStage);
+    } else {
+      reelInView = true;
+      var p0 = reelVideo.play(); if (p0 && p0.catch) p0.catch(function(){});
+    }
+  }
+
   /* ---------- 案例：从后台接口读取 ---------- */
   var FALLBACK = {
     site: {
@@ -1647,7 +1773,17 @@
       email: "y_p09@163.com",
       wechat: "PengYunZhiMa"
     },
-    works: []
+    works: [],
+    reel: [
+      { id: "bookkeeping", title: "BOKI · AI 智能记账", desc: "拖入发票、工资表、银行对账单，AI 自动识别生成凭证",
+        src: "uploads/reel-bookkeeping.mp4", poster: "uploads/reel-bookkeeping.jpg" },
+      { id: "net", title: "内网智能体网络", desc: "多节点本地编排，任务在节点间流转与汇聚",
+        src: "uploads/reel-net.mp4", poster: "uploads/reel-net.jpg" },
+      { id: "vision", title: "多模态识别", desc: "单据、票证进模型即成结构化数据",
+        src: "uploads/reel-vision.mp4", poster: "uploads/reel-vision.jpg" },
+      { id: "drama", title: "AIGC 漫剧生产", desc: "从角色资产到分镜成片的本地流水线",
+        src: "uploads/work-drama-clip.mp4", poster: "uploads/reel-drama.jpg", fit: "contain" }
+    ]
   };
 
   var SITE = Object.assign({}, FALLBACK.site);
@@ -1784,7 +1920,7 @@
 
   function loadContent(){
     var done = false;
-    function fallback(){ if (done) return; done = true; applySite(FALLBACK.site); renderWorks(FALLBACK.works); }
+    function fallback(){ if (done) return; done = true; applySite(FALLBACK.site); renderWorks(FALLBACK.works); renderReel(FALLBACK.reel); }
     if (!window.fetch) return fallback();
     var timer = setTimeout(fallback, 2500);
     fetch("content.json", { cache: "no-store" })
@@ -1794,6 +1930,7 @@
         done = true; clearTimeout(timer);
         applySite(data.site);
         renderWorks(data.works);
+        renderReel(data.reel);
       })
       .catch(fallback);
   }
