@@ -10,7 +10,7 @@
   本地预览（直接双击打开 file:// 时读不到 json，会回落到脚本内的默认联系方式）：
     python -m http.server 8080     →  http://localhost:8080
 
-  媒体路径统一用相对路径 uploads/xxx.jpg，换域名、换子目录都不用改数据。
+  媒体主源为腾讯云 COS（content.json 内为完整外链）；uploads/ 同名文件作为备用源，加载失败时自动回落。
 -->
 <html lang="zh-CN">
 <head>
@@ -795,7 +795,7 @@
 <header class="nav" id="nav">
   <div class="wrap nav-in">
     <a class="brand" href="#home" aria-label="鹏云智码首页">
-      <img class="brand-mark" src="uploads/logo-128.png" alt="鹏云智码" width="34" height="34" decoding="async">
+      <img class="brand-mark" src="https://boki-assets-1258912300.cos.ap-chengdu.myqcloud.com/pengyun/logo-128.png" alt="鹏云智码" width="34" height="34" decoding="async">
       <span class="brand-name">鹏云智码<small>PENGYUN AI LAB</small></span>
     </a>
     <nav class="nav-links" aria-label="主导航">
@@ -1220,7 +1220,7 @@
     <div class="foot-top">
       <div class="foot-brand">
         <a class="brand" href="#home">
-          <img class="brand-mark" src="uploads/logo-128.png" alt="鹏云智码" width="34" height="34" decoding="async">
+          <img class="brand-mark" src="https://boki-assets-1258912300.cos.ap-chengdu.myqcloud.com/pengyun/logo-128.png" alt="鹏云智码" width="34" height="34" decoding="async">
           <span class="brand-name">鹏云智码<small>PENGYUN AI LAB</small></span>
         </a>
         <p id="cName">西安市未央区鹏云智码软件开发部</p>
@@ -1700,7 +1700,6 @@
   } else { startVision(); }
 
   /* ---------- 能力演示 Reel ---------- */
-  var REEL_CDN = "https://cdn.jsdelivr.net/gh/edrin09/edrin@main/";
   var reelStage = document.getElementById("reelStage");
   var reelVideo = document.getElementById("reelVideo");
   var reelThumbs = document.getElementById("reelThumbs");
@@ -1745,13 +1744,12 @@
       var n = Array.prototype.indexOf.call(reelThumbs.children, btn);
       if (n > -1) setReel(n, true);
     });
-    /* GitHub Pages 国内连通性差：本地源加载失败时自动回退 jsDelivr CDN */
+    /* 媒体主源为腾讯云 COS；加载失败时回落到本仓库相对路径（GitHub Pages 源） */
     reelVideo.addEventListener("error", function(){
       if (reelCur < 0 || !REEL[reelCur]) return;
-      var local = REEL[reelCur].src || "";
       var cur = reelVideo.currentSrc || reelVideo.src || "";
-      if (local && cur && cur.indexOf(REEL_CDN) === -1 && cur.indexOf(local.split("/").pop()) > -1){
-        reelVideo.src = REEL_CDN + local;
+      if (cur.indexOf("/pengyun/") > -1){
+        reelVideo.src = "uploads/" + cur.split("/pengyun/").pop();
         reelVideo.load();
         if (reelInView){ var p = reelVideo.play(); if (p && p.catch) p.catch(function(){}); }
       }
@@ -1788,13 +1786,13 @@
     works: [],
     reel: [
       { id: "bookkeeping", title: "BOKI · AI 智能记账", desc: "拖入发票、工资表、银行对账单，AI 自动识别生成凭证",
-        src: "uploads/reel-bookkeeping.mp4", poster: "uploads/reel-bookkeeping.jpg" },
+        src: "https://boki-assets-1258912300.cos.ap-chengdu.myqcloud.com/pengyun/reel-bookkeeping.mp4", poster: "https://boki-assets-1258912300.cos.ap-chengdu.myqcloud.com/pengyun/reel-bookkeeping.jpg" },
       { id: "net", title: "内网智能体网络", desc: "多节点本地编排，任务在节点间流转与汇聚",
-        src: "uploads/reel-net.mp4", poster: "uploads/reel-net.jpg" },
+        src: "https://boki-assets-1258912300.cos.ap-chengdu.myqcloud.com/pengyun/reel-net.mp4", poster: "https://boki-assets-1258912300.cos.ap-chengdu.myqcloud.com/pengyun/reel-net.jpg" },
       { id: "vision", title: "多模态识别", desc: "单据、票证进模型即成结构化数据",
-        src: "uploads/reel-vision.mp4", poster: "uploads/reel-vision.jpg" },
+        src: "https://boki-assets-1258912300.cos.ap-chengdu.myqcloud.com/pengyun/reel-vision.mp4", poster: "https://boki-assets-1258912300.cos.ap-chengdu.myqcloud.com/pengyun/reel-vision.jpg" },
       { id: "drama", title: "AIGC 漫剧生产", desc: "从角色资产到分镜成片的本地流水线",
-        src: "uploads/work-drama-clip.mp4", poster: "uploads/reel-drama.jpg", fit: "contain" }
+        src: "https://boki-assets-1258912300.cos.ap-chengdu.myqcloud.com/pengyun/work-drama-clip.mp4", poster: "https://boki-assets-1258912300.cos.ap-chengdu.myqcloud.com/pengyun/reel-drama.jpg", fit: "contain" }
     ]
   };
 
@@ -1818,9 +1816,9 @@
 
   window.__vidFallback = function(el){
     var src = el.getAttribute("src") || "";
-    if (src && src.indexOf("//") === -1 && /^uploads\//.test(src) && (el.dataset || {}).cdnTried !== "1"){
+    if (src.indexOf("/pengyun/") > -1 && (el.dataset || {}).cdnTried !== "1"){
       if (el.dataset) el.dataset.cdnTried = "1";
-      el.src = REEL_CDN + src;
+      el.src = "uploads/" + src.split("/pengyun/").pop();
       el.load();
     }
   };

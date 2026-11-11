@@ -12,29 +12,29 @@
       "id": "bookkeeping",
       "title": "BOKI · AI 智能记账",
       "desc": "拖入发票、工资表、银行对账单，AI 自动识别生成凭证",
-      "src": "uploads/reel-bookkeeping.mp4",
-      "poster": "uploads/reel-bookkeeping.jpg"
+      "src": "https://boki-assets-1258912300.cos.ap-chengdu.myqcloud.com/pengyun/reel-bookkeeping.mp4",
+      "poster": "https://boki-assets-1258912300.cos.ap-chengdu.myqcloud.com/pengyun/reel-bookkeeping.jpg"
     },
     {
       "id": "net",
       "title": "内网智能体网络",
       "desc": "多节点本地编排，任务在节点间流转与汇聚",
-      "src": "uploads/reel-net.mp4",
-      "poster": "uploads/reel-net.jpg"
+      "src": "https://boki-assets-1258912300.cos.ap-chengdu.myqcloud.com/pengyun/reel-net.mp4",
+      "poster": "https://boki-assets-1258912300.cos.ap-chengdu.myqcloud.com/pengyun/reel-net.jpg"
     },
     {
       "id": "vision",
       "title": "多模态识别",
       "desc": "单据、票证进模型即成结构化数据",
-      "src": "uploads/reel-vision.mp4",
-      "poster": "uploads/reel-vision.jpg"
+      "src": "https://boki-assets-1258912300.cos.ap-chengdu.myqcloud.com/pengyun/reel-vision.mp4",
+      "poster": "https://boki-assets-1258912300.cos.ap-chengdu.myqcloud.com/pengyun/reel-vision.jpg"
     },
     {
       "id": "drama",
       "title": "AIGC 漫剧生产",
       "desc": "从角色资产到分镜成片的本地流水线",
-      "src": "uploads/work-drama-clip.mp4",
-      "poster": "uploads/reel-drama.jpg",
+      "src": "https://boki-assets-1258912300.cos.ap-chengdu.myqcloud.com/pengyun/work-drama-clip.mp4",
+      "poster": "https://boki-assets-1258912300.cos.ap-chengdu.myqcloud.com/pengyun/reel-drama.jpg",
       "fit": "contain"
     }
   ],
@@ -58,9 +58,9 @@
         "SQLCipher 加密存储与备份恢复",
         "桌面端打包与自动更新"
       ],
-      "cover": "uploads/work-boki.jpg",
+      "cover": "https://boki-assets-1258912300.cos.ap-chengdu.myqcloud.com/pengyun/work-boki.jpg",
       "gallery": [
-        "uploads/work-boki-plugins.jpg"
+        "https://boki-assets-1258912300.cos.ap-chengdu.myqcloud.com/pengyun/work-boki-plugins.jpg"
       ],
       "video": "",
       "links": [
@@ -95,7 +95,7 @@
         "全局低级鼠标钩子与不抢焦点浮窗",
         "模型常驻服务与进程收尸"
       ],
-      "cover": "uploads/work-tts.jpg",
+      "cover": "https://boki-assets-1258912300.cos.ap-chengdu.myqcloud.com/pengyun/work-tts.jpg",
       "gallery": [],
       "video": "",
       "links": [
@@ -130,7 +130,7 @@
         "3×3 基准测试方法（三档上下文 × 三档任务）与自动判分脚本",
         "中文日志过滤器、按天滚动落盘与启动前配置体检"
       ],
-      "cover": "uploads/work-offlineai.jpg",
+      "cover": "https://boki-assets-1258912300.cos.ap-chengdu.myqcloud.com/pengyun/work-offlineai.jpg",
       "gallery": [],
       "video": "",
       "links": [
@@ -164,11 +164,11 @@
         "角色 / 道具一致性与首尾帧生成",
         "生成任务队列与产物管理"
       ],
-      "cover": "uploads/work-drama.jpg",
+      "cover": "https://boki-assets-1258912300.cos.ap-chengdu.myqcloud.com/pengyun/work-drama.jpg",
       "gallery": [
-        "uploads/work-drama-frames.jpg"
+        "https://boki-assets-1258912300.cos.ap-chengdu.myqcloud.com/pengyun/work-drama-frames.jpg"
       ],
-      "video": "uploads/work-drama-clip.mp4",
+      "video": "https://boki-assets-1258912300.cos.ap-chengdu.myqcloud.com/pengyun/work-drama-clip.mp4",
       "links": [
         {
           "platform": "GitHub",
@@ -182,7 +182,7 @@
         }
       ],
       "videoPortrait": true,
-      "poster": "uploads/work-drama-poster.jpg"
+      "poster": "https://boki-assets-1258912300.cos.ap-chengdu.myqcloud.com/pengyun/work-drama-poster.jpg"
     },
     {
       "id": "w_crawler",
@@ -203,7 +203,7 @@
         "验证码人工介入（WebSocket）",
         "后台管理与定时调度"
       ],
-      "cover": "uploads/work-crawler.jpg",
+      "cover": "https://boki-assets-1258912300.cos.ap-chengdu.myqcloud.com/pengyun/work-crawler.jpg",
       "gallery": [],
       "video": "",
       "links": [
@@ -238,7 +238,7 @@
         "墙主佣金与微信支付提现",
         "Canvas 海报生成"
       ],
-      "cover": "uploads/work-tougao.jpg",
+      "cover": "https://boki-assets-1258912300.cos.ap-chengdu.myqcloud.com/pengyun/work-tougao.jpg",
       "gallery": [],
       "video": "",
       "links": [
@@ -273,7 +273,7 @@
         "Token 鉴权与 Redis 续期",
         "MCP 工具集封装"
       ],
-      "cover": "uploads/work-health.jpg",
+      "cover": "https://boki-assets-1258912300.cos.ap-chengdu.myqcloud.com/pengyun/work-health.jpg",
       "gallery": [],
       "video": "",
       "links": [
@@ -307,7 +307,7 @@
         "计划任务与补签槽位设计",
         "状态表刷新与汇总邮件"
       ],
-      "cover": "uploads/work-checkin.jpg",
+      "cover": "https://boki-assets-1258912300.cos.ap-chengdu.myqcloud.com/pengyun/work-checkin.jpg",
       "gallery": [],
       "video": "",
       "links": [
