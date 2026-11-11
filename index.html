@@ -898,7 +898,7 @@
       </div>
 
       <div class="reel-stage reveal" id="reelStage">
-        <video id="reelVideo" muted loop playsinline preload="metadata"></video>
+        <video id="reelVideo" muted loop playsinline preload="none"></video>
         <div class="reel-cap">
           <div>
             <h3 id="reelTitle"></h3>
@@ -1700,6 +1700,7 @@
   } else { startVision(); }
 
   /* ---------- 能力演示 Reel ---------- */
+  var REEL_CDN = "https://cdn.jsdelivr.net/gh/edrin09/edrin@main/";
   var reelStage = document.getElementById("reelStage");
   var reelVideo = document.getElementById("reelVideo");
   var reelThumbs = document.getElementById("reelThumbs");
@@ -1743,6 +1744,17 @@
       if (!btn) return;
       var n = Array.prototype.indexOf.call(reelThumbs.children, btn);
       if (n > -1) setReel(n, true);
+    });
+    /* GitHub Pages 国内连通性差：本地源加载失败时自动回退 jsDelivr CDN */
+    reelVideo.addEventListener("error", function(){
+      if (reelCur < 0 || !REEL[reelCur]) return;
+      var local = REEL[reelCur].src || "";
+      var cur = reelVideo.currentSrc || reelVideo.src || "";
+      if (local && cur && cur.indexOf(REEL_CDN) === -1 && cur.indexOf(local.split("/").pop()) > -1){
+        reelVideo.src = REEL_CDN + local;
+        reelVideo.load();
+        if (reelInView){ var p = reelVideo.play(); if (p && p.catch) p.catch(function(){}); }
+      }
     });
     setReel(0, false);
     if (reduceMotion){
@@ -1804,10 +1816,19 @@
     el.style.display = "none";
   };
 
+  window.__vidFallback = function(el){
+    var src = el.getAttribute("src") || "";
+    if (src && src.indexOf("//") === -1 && /^uploads\//.test(src) && (el.dataset || {}).cdnTried !== "1"){
+      if (el.dataset) el.dataset.cdnTried = "1";
+      el.src = REEL_CDN + src;
+      el.load();
+    }
+  };
+
   function videoHtml(url, poster){
     if (!url) return "";
     if (/\.(mp4|webm|ogg|mov)(\?|#|$)/i.test(url)){
-      return '<video controls playsinline preload="metadata"' + (poster ? ' poster="' + esc(poster) + '"' : "") +
+      return '<video controls playsinline preload="metadata" onerror="window.__vidFallback(this)"' + (poster ? ' poster="' + esc(poster) + '"' : "") +
         ' src="' + esc(url) + '"></video>';
     }
     var bv = url.match(/(BV[0-9A-Za-z]{8,})/);
