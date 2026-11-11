@@ -4,9 +4,9 @@
 
 一个单页站点，**没有后台、没有数据库、没有构建步骤、没有一个第三方依赖**。整站由 `index.html`（视图）+ `content.json`（内容）两个文件撑起来，改内容只动 JSON，推上去就发布。
 
-![首屏](docs/preview.jpg)
+![首屏](https://boki-assets-1258912300.cos.ap-chengdu.myqcloud.com/pengyun/docs/preview.jpg)
 
-![案例列表](docs/work.jpg)
+![案例列表](https://boki-assets-1258912300.cos.ap-chengdu.myqcloud.com/pengyun/docs/work.jpg)
 
 | | |
 |---|---|
