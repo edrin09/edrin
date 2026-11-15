@@ -1,6 +1,8 @@
 # 鹏云智码 · 官网
 
 > 西安市未央区鹏云智码软件开发部的官方网站：一家只做**本地化 AI 交付**的小团队，把模型、智能体、技能库和多模态识别装进客户自己的机房。
+>
+> 对外主张：**开放式 AI，离线交付 —— 模型随你换，数据不出门，AI 只写草稿。**
 
 一个单页站点，**没有后台、没有数据库、没有构建步骤、没有一个第三方依赖**。整站由 `index.html`（视图）+ `content.json`（内容）两个文件撑起来，改内容只动 JSON，推上去就发布。
 
@@ -44,20 +46,23 @@
 
 ## 页面结构
 
-单页八个区块，导航锚点直达：
+单页九个区块，导航锚点直达：
 
 | # | 区块 | 锚点 | 内容来源 |
 |---|---|---|---|
-| — | 首屏 | `#home` | `index.html` 写死（标题、四个指标数字、终端演示） |
+| — | 首屏 | `#home` | `index.html` 写死（主张句、四个指标数字、终端演示） |
 | 01 | 能力 | `#capabilities` | `index.html` 写死 |
 | 02 | 技能库 | `#skills` | `index.html` 内联数组（可切换的技能卡片） |
 | 03 | 多模态识别 | `#vision` | `index.html` 内联（SVG 动画 + JSON 输出演示） |
-| 04 | 本地化与安全 | `#security` | `index.html` 写死（深色区块） |
-| 05 | 案例 | `#work` | **`content.json` → `works`** |
-| 06 | 流程 | `#process` | `index.html` 写死 |
-| 07 | 联系 | `#contact` | **`content.json` → `site`** |
+| 05 | 本地化与安全 | `#security` | `index.html` 写死（深色区块） |
+| 06 | 开放式 AI | `#open` | `index.html` 写死（三支柱 + 五步流程图） |
+| 07 | 案例 | `#work` | **`content.json` → `works`** |
+| 08 | 流程 | `#process` | `index.html` 写死 |
+| 09 | 联系 | `#contact` | **`content.json` → `site`** |
 
-也就是说：**日常只需要改 `content.json`**；只有改「能力/技能/多模态/流程」这类叙述性内容才需要动 `index.html`。
+也就是说：**日常只需要改 `content.json`**；只有改「能力 / 技能 / 多模态 / 安全 / 开放式 AI / 流程」这类叙述性内容才需要动 `index.html`。
+
+> 「开放式 AI」区块（`#open`）承担本轮对外主张：模型开放、意图开放、入口开放；落点收紧（草稿闸门 / 一次性令牌 / 只读 MCP）。改这块文案时，先改 BOKI 仓库内部维护的《开放式 AI 推广方案》，再同步到这里——**传播口径只有一份**。
 
 ## 为什么这么写
 
@@ -237,7 +242,7 @@ git push "https://x-access-token:${GITHUB_TOKEN}@github.com/edrin09/edrin.git" m
 
 ## 推广自动化
 
-`promote/` 是与站点**无关**的本地工具：每天定时对齐八个项目的 GitHub / Gitee 仓库门面、体检各项目 README、把站点 URL 提交给 IndexNow（Bing / Yandex）、记录 star 增长、生成推广日报。
+`promote/` 是与站点**无关**的本地工具：每天定时对齐八个项目的 GitHub / Gitee 仓库门面、体检各项目 README、把站点 URL 提交给 IndexNow（Bing / Yandex）、记录 star 增长、生成推广日报。本轮「开放式 AI」的统一话术、渠道节奏与指标见 `promote/推广方案.md` 第零节，产品侧完整版见 BOKI 仓库内部维护的《开放式 AI 推广方案》。
 
 它已写入 `.gitignore`，**不随站点发布**（所以 GitHub 上看不到 `promote/`，只有本地工作副本里有）。用法看 `promote/README.md`，渠道打法看 `promote/推广方案.md`。
 

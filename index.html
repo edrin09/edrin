@@ -16,11 +16,11 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>鹏云智码 · 本地化 AI 智能体与多模态识别</title>
-<meta name="description" content="鹏云智码（西安市未央区）专注本地化 AI 落地：大模型私有部署、智能体编排、可插拔技能库、多模态识别。数据不出内网，断网可运行，全链路可审计。">
+<title>鹏云智码 · 开放式 AI 与本地化交付（离线 · 数据不出内网）</title>
+<meta name="description" content="鹏云智码（西安市未央区）专注本地化 AI 落地：开放式模型接入、智能体编排、可插拔技能库、多模态识别。模型随你换，数据不出内网，断网可运行，AI 只落草稿、全链路可审计。">
 <meta name="theme-color" content="#f1f0eb">
 <meta property="og:title" content="鹏云智码 · 把 AI 装进你自己的机房">
-<meta property="og:description" content="模型、智能体、技能库与多模态识别，整套跑在企业内网。">
+<meta property="og:description" content="开放式 AI，离线交付：模型随你换，数据不出内网，AI 只写草稿。">
 <meta property="og:type" content="website">
 <link rel="icon" type="image/png" href="favicon.png">
 <style>
@@ -787,6 +787,41 @@
     body::after{background-size:44px 44px}
     .hero::before{height:520px;top:-200px}
   }
+
+  /* ---------- 开放式 AI ---------- */
+  .open{background:var(--paper-2)}
+  .oa-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:8px}
+  .oa{
+    border:1px solid var(--line);border-radius:12px;padding:26px 24px 24px;background:var(--white);
+    display:flex;flex-direction:column;min-height:240px;transition:transform .3s,border-color .3s,box-shadow .3s;
+  }
+  .oa:hover{border-color:var(--ink);transform:translateY(-3px);box-shadow:0 24px 48px -38px rgba(11,12,13,.6)}
+  .oa-n{font-family:var(--mono);font-size:10px;color:var(--dim);letter-spacing:.1em}
+  .oa h3{font-size:18px;font-weight:640;letter-spacing:-.01em;margin:22px 0 10px}
+  .oa p{font-size:12.5px;line-height:1.78;color:var(--ink-2);margin:0 0 18px}
+  .oa p b{color:var(--ink);font-weight:600}
+  .oa-tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:auto;font-family:var(--mono);font-size:9.5px;color:var(--dim);letter-spacing:.04em}
+  .oa-tags span{border:1px solid var(--line);border-radius:4px;padding:2px 6px}
+  .oa:hover .oa-tags span{border-color:rgba(11,12,13,.28)}
+
+  .oa-flow{display:flex;align-items:stretch;gap:9px;margin-top:30px;flex-wrap:wrap}
+  .oa-step{
+    flex:1;min-width:150px;border:1px solid var(--line);background:var(--white);border-radius:10px;
+    padding:14px 16px;display:flex;flex-direction:column;gap:3px;
+  }
+  .oa-step span{font-family:var(--mono);font-size:9.5px;color:var(--dim);letter-spacing:.06em}
+  .oa-step b{font-size:13.5px;font-weight:600;letter-spacing:-.005em}
+  .oa-step em{font-family:var(--mono);font-size:9.5px;color:var(--dim);font-style:normal;letter-spacing:.02em}
+  .oa-step.on{background:var(--ink);border-color:var(--ink);color:var(--paper)}
+  .oa-step.on span,.oa-step.on em{color:#8a8f93}
+  .oa-flow i{align-self:center;font-style:normal;color:var(--dim);font-size:12px}
+  .oa-note{font-family:var(--mono);font-size:10.5px;color:var(--dim);margin:18px 0 0;letter-spacing:.02em;line-height:1.9}
+  @media (max-width:900px){
+    .oa-grid{grid-template-columns:1fr}
+    .oa{min-height:0}
+    .oa-flow i{display:none}
+    .oa-step{min-width:calc(50% - 5px)}
+  }
 </style>
 </head>
 <body>
@@ -804,6 +839,7 @@
       <a href="#skills">技能库</a>
       <a href="#vision">多模态</a>
       <a href="#security">本地化</a>
+      <a href="#open">开放式 AI</a>
       <a href="#work">案例</a>
       <a href="#contact">联系</a>
     </nav>
@@ -823,6 +859,7 @@
   <a href="#skills">技能库</a>
   <a href="#vision">多模态识别</a>
   <a href="#security">本地化与安全</a>
+  <a href="#open">开放式 AI</a>
   <a href="#work">交付案例</a>
   <a href="#contact">联系我们</a>
 </div>
@@ -841,7 +878,7 @@
           <h1 class="hero-title">把 AI 装进<br><span class="mark">你自己的</span>机房。</h1>
           <p class="hero-sub">
             模型选型、智能体编排、技能库、多模态识别 —— 一整套交付到企业内网。
-            <b>不上传一行数据，不依赖公有云，断网也能跑。</b>
+            <b>接口开放，模型随你换；数据不出门，断网也能跑。</b>
           </p>
           <div class="hero-cta">
             <a class="btn" href="#contact">
@@ -950,7 +987,7 @@
         <article class="cap reveal">
           <div class="cap-no">05 / MODEL</div>
           <h3>模型选型与微调</h3>
-          <p>不迷信参数量。按任务挑模型，用你的数据做 LoRA 微调与量化，让 7B 干出够用的活。</p>
+          <p>不迷信参数量。按任务挑模型，用你的数据做 LoRA 微调与量化；接口按 OpenAI 标准开放，<b>换模型不改业务代码</b>。</p>
           <div class="cap-tags"><span>LoRA</span><span>量化</span><span>评测集</span></div>
         </article>
         <article class="cap reveal">
@@ -1101,9 +1138,58 @@
         <span><b>✓</b> 操作审计日志</span>
         <span><b>✓</b> 传输加密</span>
         <span><b>✓</b> 离线授权</span>
+        <span><b>✓</b> 开放式接入（只读 MCP）</span>
         <span><b>✓</b> 等保合规适配</span>
         <span><b>✓</b> 数据可一键导出 / 销毁</span>
       </div>
+    </div>
+  </section>
+
+
+  <!-- 开放式 AI -->
+  <section class="sec open" id="open">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <div>
+          <div class="eyebrow">06 / Open AI</div>
+          <h2 class="sec-title">模型你选，<br>账本<em>不出门</em>。</h2>
+        </div>
+        <p class="sec-note">「开放式 AI」不是多接一个模型，而是<b>把接口开在你能换的地方，把闸门装在它必须停的地方</b>：模型能换、说话能随便说、外部 AI 能接；写入只能落草稿，人确认才生效。</p>
+      </div>
+
+      <div class="oa-grid">
+        <article class="oa reveal">
+          <div class="oa-n">01 / MODEL</div>
+          <h3>模型随你换</h3>
+          <p>OpenAI 兼容协议打底：本地 Ollama、llama.cpp、内网推理服务、云端 API 走同一套接入层。今天 7B，明天 30B，<b>业务代码与账套都不动</b>。</p>
+          <div class="oa-tags"><span>OpenAI 兼容</span><span>本地 / 内网 / 云端</span><span>零改码</span></div>
+        </article>
+        <article class="oa reveal">
+          <div class="oa-n">02 / INTENT</div>
+          <h3>一句话随便说</h3>
+          <p>不预设说法。记账、发工资、建档、改凭证、审凭证、借款、报销 —— 说出事由和金额，系统自己找回该走的单据类型，先出确认卡片。</p>
+          <div class="oa-tags"><span>7 类已交付</span><span>架构可扩 40 类</span><span>不用背指令</span></div>
+        </article>
+        <article class="oa reveal">
+          <div class="oa-n">03 / GATE</div>
+          <h3>写不进正式账</h3>
+          <p>草稿闸门只有「草稿 / 待办清单 / 档案」三种落点，没有直通。确认令牌绑人绑载荷、15 分钟过期；外部 AI 走只读 MCP，<b>物理上没有写工具</b>。</p>
+          <div class="oa-tags"><span>草稿闸门</span><span>一次性令牌</span><span>只读 MCP</span></div>
+        </article>
+      </div>
+
+      <div class="oa-flow reveal">
+        <div class="oa-step"><span>STEP 01</span><b>人说一句</b><em>自然语言 / 语音</em></div>
+        <i>→</i>
+        <div class="oa-step"><span>STEP 02</span><b>模型听懂了</b><em>意图 + 字段</em></div>
+        <i>→</i>
+        <div class="oa-step"><span>STEP 03</span><b>服务端预演</b><em>只读 · 无副作用</em></div>
+        <i>→</i>
+        <div class="oa-step"><span>STEP 04</span><b>人点确认</b><em>字段可改</em></div>
+        <i>→</i>
+        <div class="oa-step on"><span>STEP 05</span><b>只落草稿</b><em>审核后才入账</em></div>
+      </div>
+      <p class="oa-note">模型负责听懂，网关负责拦住，人负责点头 —— 这条链路上，不存在「AI 直接过账」的分支。</p>
     </div>
   </section>
 
@@ -1112,7 +1198,7 @@
     <div class="wrap">
       <div class="work-head-row reveal">
         <div>
-          <div class="eyebrow">06 / Selected Work</div>
+          <div class="eyebrow">07 / Selected Work</div>
           <h2 class="sec-title">交付过的<em>场景</em>。</h2>
         </div>
         <p class="sec-note">从几万的单点工具到内部平台，都是能跑起来、有人每天在用的东西。</p>
@@ -1129,7 +1215,7 @@
     <div class="wrap">
       <div class="sec-head reveal" style="margin-bottom:36px">
         <div>
-          <div class="eyebrow">07 / Process</div>
+          <div class="eyebrow">08 / Process</div>
           <h2 class="sec-title">怎么把这事<em>做成</em>。</h2>
         </div>
       </div>
@@ -1172,7 +1258,7 @@
   <section class="sec contact" id="contact">
     <div class="wrap">
       <div class="contact-head">
-        <div class="eyebrow">08 / Contact</div>
+        <div class="eyebrow">09 / Contact</div>
         <h2 class="sec-title">先聊聊你的<em>数据</em>。</h2>
         <p class="sec-note">
           你现在有什么系统、数据在谁手里、能不能出网 —— 把这三点说清楚，我们就能判断这事能不能做、大概多少钱。
